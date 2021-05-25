@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {% load static %}
+    <title>Clout 9</title>
+    {% block styles %}
+      <link rel="shortcut icon" href="{% static 'TemplateData/favicon.ico' %}">
+      <link rel="stylesheet" href="{% static 'TemplateData/style.css' %}">
+      <script src="{% static 'TemplateData/UnityProgress.js' %}"></script>
+      <script src="{% static 'Build/UnityLoader.js' %}"></script>
+      <script>
+        var unityInstance = UnityLoader.instantiate("unityContainer", "{% static 'Build/cube.json' %}", {onProgress: UnityProgress});
+      </script>
+    {% endblock %}
+  </head>
+  {% block body %}
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 1000px; height: 1000px"></div>
+    </div>
+  </body>
+  {% endblock %}
+</html>
